@@ -25,3 +25,13 @@ contenedor.appendChild (divFooter);
 
 
 DOM.appendChild(contenedor)
+
+let todasLASCartasDelDOM = document.querySelectorAll(`.carta`)
+todasLASCartasDelDOM.forEach(cadaCarta => {
+
+    cadaCarta.addEventListener("click",()=>{
+        cadaCarta.classList.add("marcaado")
+    })
+
+})
+    
