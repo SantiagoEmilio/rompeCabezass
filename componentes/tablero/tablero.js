@@ -13,7 +13,7 @@ let cartasVolteadas = [];
 let parejasEncontradas = 0;
 
 function voltearCarta() {
-    if (this.classList.contains("volteo") || this.classList.contains("fija") || cartasVolteadas.length === 2) {
+    if (this.classList.contains("voltea") || this.classList.contains("fija") || cartasVolteadas.length === 2) {
         return;
     }
     
