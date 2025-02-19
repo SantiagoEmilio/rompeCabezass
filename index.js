@@ -1,37 +1,46 @@
 import { cargar_Cartas } from "./componentes/tablero/tablero.js";
-import {  header11 } from "./componentes/header/header.js";
-let DOM = document.querySelector("#root");
+import { header11 } from "./componentes/header/header.js";
 
-let contenedor = document.createElement(`div`);
-contenedor.className = "contenedor";
+function cargarDOM() {
+    // Seleccionar el contenedor principal en el DOM
+    const DOM = document.querySelector("#root");
 
-let divHeader= document.createElement(`div`);  
-divHeader.className = "div-header"; 
-contenedor.appendChild(divHeader);
-divHeader.appendChild(header11()); 
+    // Crear el contenedor principal
+    const contenedor = document.createElement('div');
+    contenedor.className = "contenedor";
 
-let divProgreso =  document.createElement(`div`);
-divProgreso.className = "div-progreso";
-contenedor.appendChild (divProgreso);
+    // Crear y agregar el header
+    const divHeader = document.createElement('div');
+    divHeader.className = "div-header";
+    divHeader.appendChild(header11());
+    contenedor.appendChild(divHeader);
 
-let divTablero =  document.createElement(`div`);
-divTablero.className = "div-tablero";
-divTablero.appendChild(cargar_Cartas());
-contenedor.appendChild (divTablero);
+    // Crear y agregar el div de progreso
+    const divProgreso = document.createElement('div');
+    divProgreso.className = "div-progreso";
+    contenedor.appendChild(divProgreso);
 
-let divFooter =  document.createElement(`div`);
-divFooter.className = "div-foouter";
-contenedor.appendChild (divFooter);
+    // Crear y agregar el tablero de cartas
+    const divTablero = document.createElement('div');
+    divTablero.className = "div-tablero";
+    divTablero.appendChild(cargar_Cartas());
+    contenedor.appendChild(divTablero);
 
+    // Crear y agregar el footer
+    const divFooter = document.createElement('div');
+    divFooter.className = "div-footer";
+    contenedor.appendChild(divFooter);
 
-DOM.appendChild(contenedor)
+    // Agregar el contenedor al DOM
+    DOM.appendChild(contenedor);
 
-let todasLASCartasDelDOM = document.querySelectorAll(`.carta`)
-todasLASCartasDelDOM.forEach(cadaCarta => {
+    // Manejar eventos de las cartas
+    const todasLasCartasDelDOM = document.querySelectorAll('.carta');
+    todasLasCartasDelDOM.forEach(cadaCarta => {
+        cadaCarta.addEventListener("click", () => {
+            cadaCarta.classList.add("marcado");
+        });
+    });
+}
 
-    cadaCarta.addEventListener("click",()=>{
-        cadaCarta.classList.add("marcaado")
-    })
-
-})
-    
+cargarDOM();

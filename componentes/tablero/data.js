@@ -10,5 +10,6 @@ function mezclarCartas() {
 
     return todas_cartas;
 }
+let todas_cartas=mezclarCartas();
 
-export { mezclarCartas };
+export { todas_cartas };
